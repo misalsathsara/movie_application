@@ -96,7 +96,7 @@ class _HomeScreenState extends State<Homepage> {
                             ),
                           )
                         ],
-                      );
+                      ); 
                     },
                     //carousal
                     options: CarouselOptions(
@@ -118,7 +118,7 @@ class _HomeScreenState extends State<Homepage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 10),
+                margin: const EdgeInsets.symmetric(vertical: 10),
                 height: 250,
                 child: FutureBuilder(
                   future: upComing,
