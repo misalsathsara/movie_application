@@ -98,6 +98,7 @@ class _HomeScreenState extends State<Homepage> {
                         ],
                       );
                     },
+                    //carousal
                     options: CarouselOptions(
                       autoPlay: true,
                       enlargeCenterPage: true,
