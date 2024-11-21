@@ -6,10 +6,10 @@ class CustomDrawer extends StatelessWidget {
   final bool isDarkMode;
 
   const CustomDrawer({
-    Key? key,
+    super.key,
     required this.onThemeChanged,
     required this.isDarkMode, required List<Movie> favorites,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

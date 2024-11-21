@@ -14,10 +14,10 @@ class HomeScreen extends StatefulWidget {
   final bool isDarkMode;
 
   const HomeScreen({
-    Key? key,
+    super.key,
     required this.onThemeChanged,
     required this.isDarkMode,
-  }) : super(key: key);
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -29,6 +29,9 @@ class _HomeScreenState extends State<HomeScreen> {
   late Future<List<Movie>> popularMovies;
   final List<String> categories = ['All', 'Action', 'Comedy', 'Romance', 'Horror'];
   List<Movie> favorites = [];
+
+  int _selectedIndex = 0; // for Bottom Navigation
+  bool _isMenuOpen = false; // Track if the menu is open
 
   @override
   void initState() {
@@ -49,6 +52,31 @@ class _HomeScreenState extends State<HomeScreen> {
       } else {
         favorites.add(movie);
       }
+    });
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    if (index == 1) { // Navigate to Favorites screen when "Favorites" tab is clicked
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => FavoritesScreen(
+            favorites: favorites,
+            onToggleFavorite: _toggleFavorite,
+          ),
+        ),
+      );
+    }
+  }
+
+  // Toggle the menu open or closed
+  void _toggleMenu() {
+    setState(() {
+      _isMenuOpen = !_isMenuOpen;
     });
   }
 
@@ -215,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 16),
             SizedBox(
-              height: 100,
+              height: 50,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: categories.length,
@@ -235,6 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: Container(
                       width: 120,
+                      
                       margin: const EdgeInsets.only(right: 16),
                       decoration: BoxDecoration(
                         color: Colors.red,
@@ -275,6 +304,25 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped, // Handle tab clicks and navigate to the correct screen
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorites', // When clicked, navigate to Favorites screen
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+        ],
+      ),
+      
     );
   }
 

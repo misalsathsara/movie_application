@@ -10,10 +10,10 @@ class MovieDetailScreen extends StatefulWidget {
   final Function(Movie)? onToggleFavorite;
 
   const MovieDetailScreen({
-    Key? key,
+    super.key,
     required this.movie,
     this.onToggleFavorite,
-  }) : super(key: key);
+  });
 
   @override
   State<MovieDetailScreen> createState() => _MovieDetailScreenState();

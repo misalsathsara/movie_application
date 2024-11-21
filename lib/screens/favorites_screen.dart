@@ -8,10 +8,10 @@ class FavoritesScreen extends StatelessWidget {
   final Function(Movie) onToggleFavorite;
 
   const FavoritesScreen({
-    Key? key,
+    super.key,
     required this.favorites,
     required this.onToggleFavorite,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

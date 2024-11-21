@@ -7,7 +7,7 @@ import 'movie_detail_screen.dart';
 class CategoryMoviesScreen extends StatelessWidget {
   final String category;
 
-  const CategoryMoviesScreen({Key? key, required this.category}) : super(key: key);
+  const CategoryMoviesScreen({super.key, required this.category});
 
   @override
   Widget build(BuildContext context) {
