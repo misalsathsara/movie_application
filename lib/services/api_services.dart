@@ -86,4 +86,21 @@ class APIservices {
         return '';
     }
   }
+
+
+
+  Future<List<Movie>> searchMovies(String query) async {
+  final url = Uri.parse(
+    '$baseUrl/search/movie?api_key=$apiKey&query=${Uri.encodeComponent(query)}',
+  );
+  final response = await http.get(url);
+
+  if (response.statusCode == 200) {
+    final List<dynamic> data = json.decode(response.body)['results'];
+    return data.map((movie) => Movie.fromMap(movie)).toList();
+  } else {
+    throw Exception("Failed to load search results");
+  }
+}
+
 }

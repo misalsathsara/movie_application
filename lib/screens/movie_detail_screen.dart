@@ -106,11 +106,15 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
               if (widget.onToggleFavorite != null)
                 IconButton(
                   icon: Icon(
-                    widget.movie.isFavorite ? Icons.favorite : Icons.favorite_border,
-                    color: Colors.red,
+                    widget.movie.isFavorite
+                        ? Icons.favorite
+                        : Icons.favorite_border,
+                    color: widget.movie.isFavorite ? Colors.red : Colors.white,
+                    size: 30,
                   ),
                   onPressed: () {
                     setState(() {
+                      widget.movie.isFavorite = !widget.movie.isFavorite;
                       widget.onToggleFavorite!(widget.movie);
                     });
                   },

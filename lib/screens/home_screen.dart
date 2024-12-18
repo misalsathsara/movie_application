@@ -8,6 +8,7 @@ import '../widgets/custom_drawer.dart';
 import 'movie_detail_screen.dart';
 import 'category_movies_screen.dart';
 import 'favorites_screen.dart';
+import 'search_screen.dart'; // Import the new search screen
 
 class HomeScreen extends StatefulWidget {
   final Function(bool) onThemeChanged;
@@ -70,6 +71,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       );
+    } else if (index == 2) { // Navigate to Search screen when "Search" tab is clicked
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SearchScreen(),
+        ),
+      );
     }
   }
 
@@ -105,8 +113,6 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
           const SizedBox(width: 8),
-          const Icon(Icons.search),
-          const SizedBox(width: 16),
         ],
       ),
       drawer: CustomDrawer(
@@ -263,7 +269,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: Container(
                       width: 120,
-                      
                       margin: const EdgeInsets.only(right: 16),
                       decoration: BoxDecoration(
                         color: Colors.red,
@@ -318,11 +323,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
-            label: 'Search',
+            label: 'Search', // Navigate to Search screen
           ),
         ],
       ),
-      
     );
   }
 
