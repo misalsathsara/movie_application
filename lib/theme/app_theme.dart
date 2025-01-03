@@ -19,11 +19,11 @@ class AppTheme {
       bodyLarge: GoogleFonts.poppins(color: Colors.white),
       bodyMedium: GoogleFonts.poppins(color: Colors.white70),
     ),
-    colorScheme: ColorScheme.dark(
-      primary: const Color(0xFF6200EE),
-      secondary: const Color(0xFF03DAC6),
-      background: const Color(0xFF121212),
-      surface: const Color(0xFF1E1E2C),
+    colorScheme: const ColorScheme.dark(
+      primary: Color(0xFF6200EE),
+      secondary: Color(0xFF03DAC6),
+      background: Color(0xFF121212),
+      surface: Color(0xFF1E1E2C),
     ),
   );
 
@@ -45,11 +45,10 @@ class AppTheme {
       bodyLarge: GoogleFonts.poppins(color: Colors.black),
       bodyMedium: GoogleFonts.poppins(color: Colors.black87),
     ),
-    colorScheme: ColorScheme.light(
-      primary: const Color(0xFF6200EE),
-      secondary: const Color(0xFF03DAC6),
-      background: Colors.white,
-      surface: const Color(0xFFF5F5F5),
+    colorScheme: const ColorScheme.light(
+      primary: Color(0xFF6200EE),
+      secondary: Color(0xFF03DAC6),
+      surface: Color(0xFFF5F5F5),
     ),
   );
 }

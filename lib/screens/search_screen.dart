@@ -5,7 +5,7 @@ import '../services/api_services.dart';
 import '../widgets/movie_card.dart';
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({Key? key}) : super(key: key);
+  const SearchScreen({super.key});
 
   @override
   _SearchScreenState createState() => _SearchScreenState();
